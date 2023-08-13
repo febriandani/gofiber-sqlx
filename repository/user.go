@@ -1,7 +1,7 @@
 package repository
 
 import (
-	mt "gofiber-sqlx/model/todolist"
+	mt "gofiber-sqlx/model/user"
 
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq" // Import the PostgreSQL driver

@@ -1,7 +1,7 @@
 package service
 
 import (
-	mt "gofiber-sqlx/model/todolist"
+	mt "gofiber-sqlx/model/user"
 	"gofiber-sqlx/repository"
 )
 
