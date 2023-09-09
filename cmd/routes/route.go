@@ -12,4 +12,5 @@ func SetupRoutes(app *fiber.App, userHandler *handler.UserHandler) {
 	app.Get("/users/:id", userHandler.GetUserByIDHandler)
 	app.Put("/users/:id", userHandler.UpdateUserHandler)
 	app.Delete("/users/:id", userHandler.DeleteUserHandler)
+	app.Get("/users/:offset/:limit", userHandler.GetUsersHandler)
 }
