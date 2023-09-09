@@ -14,7 +14,7 @@ import (
 
 const (
 	dbDriver = "postgres"
-	dbSource = "host=localhost port=5432 user=postgres password=password dbname=postgres sslmode=disable"
+	dbSource = "host=localhost port=5432 user=postgres password=junior34 dbname=postgres sslmode=disable"
 	port     = ":8080" // Replace with the desired port number
 )
 
@@ -27,7 +27,7 @@ func main() {
 	defer db.Close()
 
 	// Initialize the repository, service, and handler
-	userRepo := repository.NewTodoListRepository(db)
+	userRepo := repository.NewUsertRepository(db)
 	userService := service.NewUserService(userRepo)
 	userHandler := handler.NewUserHandler(userService)
 

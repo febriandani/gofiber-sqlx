@@ -11,6 +11,7 @@ type User interface {
 	GetUserByID(id int) (*mt.User, error)
 	UpdateUser(id int, name, email string) error
 	DeleteUser(id int) error
+	GetUsers(offset, limit int) ([]mt.User, error)
 }
 
 // UserServiceImpl is the implementation of UserService.
@@ -27,11 +28,16 @@ func NewUserService(userRepo repository.UserRepository) User {
 func (s *UserService) CreateUser(name, email string) (*mt.User, error) {
 	user := &mt.User{Name: name, Email: email}
 
-	if err := s.userRepo.CreateUser(user); err != nil {
+	id, err := s.userRepo.CreateUser(user)
+	if err != nil {
 		return nil, err
 	}
 
-	return user, nil
+	return &mt.User{
+		ID:    id,
+		Name:  user.Name,
+		Email: user.Email,
+	}, nil
 }
 
 // GetUserByID retrieves a user by ID.
@@ -60,4 +66,13 @@ func (s *UserService) DeleteUser(id int) error {
 	}
 
 	return s.userRepo.DeleteUser(id)
+}
+
+func (s *UserService) GetUsers(offset, limit int) ([]mt.User, error) {
+	users, err := s.userRepo.GetUsersRepo(offset, limit)
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
 }
