@@ -1,0 +1,28 @@
+time="2024-02-17 00:26:40" level=info msg="server listen to port :8080"
+time="2024-02-17 00:27:26" level=info msg="server listen to port :8080" StartApp=
+time="2024-02-17 00:27:44" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:28:41" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:30:04" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:32:47" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:33:36" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:33:39" level=info msg="Error fetching users: rpc error: code = Internal desc = Parse Task To Payload Failed" Request : ="[]"
+time="2024-02-17 00:34:58" level=info msg="Error fetching user: missing destination name userid in *user.User" Request : =8
+time="2024-02-17 00:35:30" level=info msg="Error creating user:pq: column \"name\" of relation \"users\" does not exist" Request : ="&{0 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 00:35:51" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:37:18" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:37:19" level=info msg=CreateUserHandler Successfully created user="&{0 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 00:37:36" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 00:37:45" level=info msg=CreateUserHandler Successfully created user="&{11 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 03:26:18" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:26:55" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:28:17" level=info msg=CreateUserHandler Successfully created user="&{12 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 03:35:31" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:36:52" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:40:09" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:55:59" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 03:58:53" level=info msg=CreateUserHandler Successfully created user="&{13 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 14:37:49" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 14:38:11" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 14:44:41" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-17 14:44:47" level=info msg=CreateUserHandler Successfully created user="&{14 Muhammad Febri Andani febriandani176@gmail.com}"
+time="2024-02-17 15:02:49" level=info msg="server listen to port :8080" StartApp=gofiber
