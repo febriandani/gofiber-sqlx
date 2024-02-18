@@ -43,7 +43,7 @@ func (r *UsertRepository) CreateUser(user *mt.User) (int64, error) {
 	param = append(param, user.Name)
 	param = append(param, user.Email)
 
-	query := "INSERT INTO users (name, email) VALUES (?, ?) returning id"
+	query := "INSERT INTO public_local.users (name, email) VALUES (?, ?) returning id"
 
 	query, args, err := sqlx.In(query, param...)
 	if err != nil {
@@ -84,11 +84,10 @@ func (r *UsertRepository) DeleteUser(id int) error {
 func (r *UsertRepository) GetUsersRepo(offset, limit int) ([]mt.User, error) {
 	var result []mt.User
 
-	query := `select id, name, email from users OFFSET ((?-1)*?) ROWS
-	FETCH NEXT ? ROWS ONLY `
+	query := `select id, ausername as name, useremail as email from users OFFSET ((?-1)*?) ROWS
+	FETCH NEXT ? ROWS ONLY`
 
 	query, args, err := sqlx.In(query, offset, limit, limit)
-
 	query = r.db.Rebind(query)
 
 	err = r.db.Select(&result, query, args...)

@@ -1,8 +1,13 @@
 package service
 
 import (
+	"fmt"
 	mt "gofiber-sqlx/model/user"
 	"gofiber-sqlx/repository"
+
+	"github.com/sirupsen/logrus"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 // UserService is the interface that provides user-related methods.
@@ -69,10 +74,37 @@ func (s *UserService) DeleteUser(id int) error {
 }
 
 func (s *UserService) GetUsers(offset, limit int) ([]mt.User, error) {
-	users, err := s.userRepo.GetUsersRepo(offset, limit)
-	if err != nil {
-		return nil, err
+	errCh := make(chan error)
+	resCh := make(chan []mt.User)
+	var result []mt.User
+
+	go func() {
+		users, err := s.userRepo.GetUsersRepo(offset, limit)
+		if err != nil {
+			errCh <- err
+			resCh <- nil
+			return
+		}
+
+		resCh <- users
+	}()
+
+	// Use select to wait for either an error or a result
+	select {
+	case err := <-errCh:
+		res := <-resCh
+		logrus.WithFields(logrus.Fields{
+			"debug":   fmt.Sprintf("%s", res),
+			"service": "CreateKliringTransaction",
+		}).WithError(err).Errorf("Update Task Data Failed")
+		return nil, status.Errorf(codes.Internal, "Parse Task To Payload Failed")
+
+	case res := <-resCh:
+		result = res
+		break
 	}
 
-	return users, nil
+	fmt.Println("result: ", result)
+	return result, nil
+
 }

@@ -1,0 +1,2 @@
+time="2024-02-18 16:41:32" level=info msg="server listen to port :8080" StartApp=gofiber
+time="2024-02-18 16:41:35" level=info msg=CreateUserHandler Successfully created user="&{15 Muhammad Febri Andani febriandani176@gmail.com}"
